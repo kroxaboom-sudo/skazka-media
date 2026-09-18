@@ -1,22 +1,27 @@
 # Skazka Media
 
-**RU:** Набор независимых движков просмотра и воспроизведения контента.
+> RU — основной язык · EN — required second language
 
-**EN:** Independent content viewing and playback engines.
+## RU
 
-## Модули / Modules
+Набор независимых движков для видео, аудио, текста и изображений.
 
-- video — видеоплеер;
-- audio — аудиоплеер;
-- text — текстовая читалка;
-- image — просмотрщик изображений и комиксов.
+**Текущий статус:** репозиторий создан как целевая граница модуля. Рабочий код переносится из существующих проектов поэтапно, с тестами и без копирования project-specific зависимостей.
 
-## Почему один репозиторий / Why one repository
+**Граница модуля:** video / audio / text / image modules; product-specific UI stays outside the engines.
 
-У этих модулей разные задачи, поэтому они не смешиваются в один большой player. Общий репозиторий нужен только для согласованных contracts, общих тестовых утилит и интеграции с Download, Data и Screen Awake.
+Перед первым стабильным релизом здесь появятся собственные versioning, тесты, changelog и лицензия. До выбора лицензии публикация кода не означает автоматическое разрешение на его повторное использование.
 
-Each engine stays independent. The shared repository exists for common contracts, test helpers and integration points rather than for turning everything into one player.
+## EN
 
-## Граница / Boundary
+Independent engines for video, audio, text, and image content.
 
-UI конкретного приложения, source-specific логика и private endpoints сюда не входят.
+**Current status:** this repository is the target module boundary. Working code is being extracted from existing projects incrementally, with tests and without copying project-specific dependencies.
+
+**Module boundary:** video / audio / text / image modules; product-specific UI stays outside the engines.
+
+Before the first stable release, this repository will get its own versioning, tests, changelog, and license. Until a license is selected, publishing the source does not automatically grant reuse rights.
+
+## Development rules / Правила разработки
+
+See [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md).
