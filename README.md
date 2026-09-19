@@ -4,24 +4,32 @@
 
 ## RU
 
-Набор независимых движков для видео, аудио, текста и изображений.
+Общие source-neutral компоненты отображения контента.
 
-**Текущий статус:** репозиторий создан как целевая граница модуля. Рабочий код переносится из существующих проектов поэтапно, с тестами и без копирования project-specific зависимостей.
+**Статус:** `0.1.0-preview`.
 
-**Граница модуля:** video / audio / text / image modules; product-specific UI stays outside the engines.
+- `media-core` — `ContentKind` и выбор семейства renderer.
+- `text-reader-core` — независимая модель/нормализация текстового документа.
+- `image-viewer-core` — чистая геометрия масштабирования, pan, page-step и crop.
+- Android View-слой текстовой читалки и image viewer пока остаётся в Skazka Hub и будет вынесен отдельно после разрыва зависимостей от `NativeTextReader` / `NativeReader`.
+- AUDIO и VIDEO уже существуют как типы контента и маршрутизируются в MEDIA, но production playback engine пока не реализован. Эти модули считаются planned, а не готовыми.
 
-Перед первым стабильным релизом здесь появятся собственные versioning, тесты, changelog и лицензия. До выбора лицензии публикация кода не означает автоматическое разрешение на его повторное использование.
+Проверено на HOSTKEY: media self-test — PASS; Gradle `build` всех трёх модулей — PASS.
 
 ## EN
 
-Independent engines for video, audio, text, and image content.
+Shared source-neutral content presentation building blocks.
 
-**Current status:** this repository is the target module boundary. Working code is being extracted from existing projects incrementally, with tests and without copying project-specific dependencies.
+**Status:** `0.1.0-preview`.
 
-**Module boundary:** video / audio / text / image modules; product-specific UI stays outside the engines.
+- `media-core` — `ContentKind` and renderer-family routing.
+- `text-reader-core` — independent text-document model and normalization.
+- `image-viewer-core` — pure scaling, pan, page-step, and crop geometry.
+- The Android View layer for the text reader and image viewer still lives in Skazka Hub and will be extracted after its `NativeTextReader` / `NativeReader` coupling is removed.
+- AUDIO and VIDEO already exist as content types and route to MEDIA, but a production playback engine is not implemented yet. Those modules are planned, not claimed as complete.
 
-Before the first stable release, this repository will get its own versioning, tests, changelog, and license. Until a license is selected, publishing the source does not automatically grant reuse rights.
-
-## Development rules / Правила разработки
+Verified on HOSTKEY: media self-test — PASS; Gradle `build` for all three modules — PASS.
 
 See [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md).
+
+> A license will be selected before the first stable public release. Until then, publication of the source does not grant reuse rights.
