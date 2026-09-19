@@ -1,0 +1,2 @@
+rootProject.name = 'SkazkaMedia'
+include ':media-core', ':text-reader-core', ':image-viewer-core'
