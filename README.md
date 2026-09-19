@@ -4,31 +4,35 @@
 
 ## RU
 
-Общие source-neutral компоненты отображения контента.
+Общие source-neutral компоненты отображения и нормализации контента.
 
 **Статус:** `0.1.0-preview`.
 
-- `media-core` — `ContentKind` и выбор семейства renderer.
+- `media-core` — `ContentKind`, выбор семейства renderer и базовые video-catalog primitives.
+- Video catalog primitives: `VideoKind`, `VideoCatalogItem`, `CanonicalMetadataRef`, `MediaSourceRef`.
+- `MediaSourceRef.dedupKey()` предпочитает стабильный ID медиа и позволяет не размножать одну Telegram-медиа после переноса между source/Vault.
 - `text-reader-core` — независимая модель/нормализация текстового документа.
 - `image-viewer-core` — чистая геометрия масштабирования, pan, page-step и crop.
 - Android View-слой текстовой читалки и image viewer пока остаётся в Skazka Hub и будет вынесен отдельно после разрыва зависимостей от `NativeTextReader` / `NativeReader`.
-- AUDIO и VIDEO уже существуют как типы контента и маршрутизируются в MEDIA, но production playback engine пока не реализован. Эти модули считаются planned, а не готовыми.
+- AUDIO и VIDEO маршрутизируются в MEDIA. Модель видеокаталога уже начата, но production playback engine пока не реализован.
 
-Проверено на HOSTKEY: media self-test — PASS; Gradle `build` всех трёх модулей — PASS.
+Проверено на HOSTKEY: media self-test — PASS.
 
 ## EN
 
-Shared source-neutral content presentation building blocks.
+Shared source-neutral content presentation and normalization building blocks.
 
 **Status:** `0.1.0-preview`.
 
-- `media-core` — `ContentKind` and renderer-family routing.
+- `media-core` — `ContentKind`, renderer-family routing, and basic video-catalog primitives.
+- Video catalog primitives: `VideoKind`, `VideoCatalogItem`, `CanonicalMetadataRef`, `MediaSourceRef`.
+- `MediaSourceRef.dedupKey()` prefers a stable media ID so the same Telegram media is not duplicated after moving between a source and the Vault.
 - `text-reader-core` — independent text-document model and normalization.
 - `image-viewer-core` — pure scaling, pan, page-step, and crop geometry.
 - The Android View layer for the text reader and image viewer still lives in Skazka Hub and will be extracted after its `NativeTextReader` / `NativeReader` coupling is removed.
-- AUDIO and VIDEO already exist as content types and route to MEDIA, but a production playback engine is not implemented yet. Those modules are planned, not claimed as complete.
+- AUDIO and VIDEO route to MEDIA. The video catalog model has started, but a production playback engine is not implemented yet.
 
-Verified on HOSTKEY: media self-test — PASS; Gradle `build` for all three modules — PASS.
+Verified on HOSTKEY: media self-test — PASS.
 
 See [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md).
 
