@@ -19,7 +19,7 @@ public final class MediaCoreSelfTest {
         check("line 1\n\nline 2".equals(text.body()), "plain text normalization");
 
         check(ImageLayout.baseScale(1000, 2000, 500, 1000, true, true) == 0.5f, "fit scale");
-        check(ImageLayout.pageStep(100, 20, false) == -1, "LTR page step");
+        check(ImageLayout.pageStep(20, 100, false) == -1, "LTR page step");
         check(ImageLayout.pageStep(20, 100, true) == 1, "RTL page step");
         check(ImageLayout.croppedSize(1000, true) < 1000, "crop helper");
 
